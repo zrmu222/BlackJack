@@ -73,13 +73,18 @@ namespace BlackJack
                 while (playing && user.getValue() < 21)
                 {
                     playing = false;
-                    Console.Write("Hit/Stay (H to hit, enter to stay): ");
+                    Console.Write("Hit/Stay (H to hit, enter to stay, d to double down): ");
                     string answer = Console.ReadLine();
                     if (answer == "h")
                     {
                         user.addCard(deckUtil.getCard());
                         Console.WriteLine("User: " + user.showCards());
                         playing = true;
+                    }else if (answer == "d")
+                    {
+                        bet += bet;
+                        user.addCard(deckUtil.getCard());
+                        playing = false;
                     }
 
                     if (user.getValue() >= 21)
