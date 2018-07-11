@@ -22,15 +22,7 @@ namespace BlackJack
             Console.ReadLine();
             Console.Clear();
 
-            Console.WriteLine("Starting BlackJack...");
-            Console.Write("How many decks do you want to play with?: ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            Game game = new Game
-            {
-                deckNumber = number
-            };
-            game.deckUtil.setDeck(number);
+            Game game = new Game();
             game.playGame();          
             highScore.saveScore(game.maxBank);
             Console.WriteLine("Score: ${0}", game.maxBank);

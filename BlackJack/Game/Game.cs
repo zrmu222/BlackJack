@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace BlackJack
 {
@@ -16,9 +17,11 @@ namespace BlackJack
 
         public Game()
         {
-            bank = 100;
+            bank = Convert.ToInt32(ConfigurationManager.AppSettings["StartingBank"]);
+            deckNumber = Convert.ToInt32(ConfigurationManager.AppSettings["NumberOfDecks"]);
             play = true;
             deckUtil = new DeckUtil();
+            deckUtil.setDeck(deckNumber);
             maxBank = 100;
         }
 
