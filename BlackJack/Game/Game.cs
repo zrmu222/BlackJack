@@ -82,9 +82,17 @@ namespace BlackJack
                         playing = true;
                     }else if (answer == "d")
                     {
-                        bet += bet;
-                        user.addCard(deckUtil.getCard());
-                        playing = false;
+                        if(bet * 2 <= bank)
+                        {
+                            bet += bet;
+                            user.addCard(deckUtil.getCard());
+                            playing = false;
+                        }
+                        else
+                        {
+                            playing = true;
+                            Console.WriteLine("Not enough funds to double down.");
+                        }
                     }
 
                     if (user.getValue() >= 21)
@@ -94,7 +102,7 @@ namespace BlackJack
                 }
 
                 //Dealers turn
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("User: " + user.showCards());
                 Console.WriteLine("Dealer: " + dealer.showCards());
                 while (dealer.getValue() < 17)

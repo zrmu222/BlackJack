@@ -18,6 +18,7 @@ namespace BlackJack
             {
                 Console.WriteLine("$" + i);
             }
+            Console.WriteLine("Enter to continue");
             Console.ReadLine();
             Console.Clear();
 

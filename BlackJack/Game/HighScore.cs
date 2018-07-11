@@ -31,7 +31,7 @@ namespace BlackJack
             StreamWriter writer;
             try
             {
-                writer = new StreamWriter(path + @"\Highscores.txt");              
+                writer = new StreamWriter(path + @"\.Highscores.txt");              
                 for (int i = 0; i < scores.Count && i < 5; i++)
                 {
 
@@ -59,7 +59,7 @@ namespace BlackJack
             List<int> scoreList = new List<int>();
             try
             {
-                StreamReader reader = new StreamReader(path + @"\Highscores.txt");
+                StreamReader reader = new StreamReader(path + @"\.Highscores.txt");
                 string str = "";
                 while ((str = reader.ReadLine()) != null)
                 {
